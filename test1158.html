@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<style>
+  input{width: 300px}
+  input,button{margin-bottom: 10px}
+</style>
+<body>
+<input type="number" id="N" name="number" placeholder="N을 입력하세요" ><br/>
+<input type="number" id="K" name="number" placeholder="K를 입력하세요" ><br/>
+<button type="submit">시작</button>
+<div id="result"></div>
+</body>
+<script>
+  $(function(){
+
+    $("button").click(function(){
+      var N = parseInt($("#N").val());
+      var K = parseInt($("#K").val());
+      var val = $("input[name=number]").val();
+      if(val < 1 || val > 5000) {
+        alert("1~5000 범위로 입력해 주십시오.");
+        $(this).val('');
+      }else{
+        if(N > K){
+          var arr = []
+          var arrTotal = []
+          for(i = 0; i < N; i++){
+            arr[i] = i + 1 ;
+          }
+          arr.forEach(function(){
+            var arrNum = arr[K-1];
+            var result = '';
+            var result2 = '';
+
+            if(arr.length > 0){
+              if(K <= arr.length){
+                arrTotal.push(arrNum)
+                result = arr.slice(0,K-1);
+                result2 = arr.slice(K,arr.length+1);
+                arr = result2.concat(result)
+              }else{
+                var num = (K-1) % (arr.length) + 1
+                arrNum = arr[num-1];
+                arrTotal.push(arrNum)
+                result = arr.slice(0,num-1);
+                result2 = arr.slice(num,arr.length+1);
+                arr = result2.concat(result)
+              }
+            }
+          })
+          $("#result").html('<'+arrTotal.join(", ")+'>');
+        }else{
+          alert("K의 숫자가 N보다 클 수 없습니다")
+        }
+      }
+    })
+
+  })
+</script>
+</html>
