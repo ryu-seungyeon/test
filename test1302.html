@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+
+    var book = ["8","88","100","icecream","peanuts","peanuts","chocolate","candy","chocolate","icecream","apple"]
+    // 배열을 오름차순으로 정렬한다
+    book.sort(function(a, b)  {
+      return a - b;
+    });
+    // 누적 판매 갯수를 구한다
+    const saleNum = book.reduce((acc, value) => {
+      acc[value] = (acc[value] || 0) + 1;
+      return acc;
+    }, {});
+    const bookCount = Object.keys(saleNum) // 책 판매개수
+    // 가장 많이 팔린 개수의 책을 찾는다
+    const bestSeller = bookCount.reduce((curr, next) => {
+      return saleNum[curr] >= saleNum[next] ? curr : next;
+    })
+    console.log(bestSeller)
+
+</script>
+</html>
