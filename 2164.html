@@ -20,9 +20,11 @@
       var N = $("#number").val();
       var arr = []
 
-      for(i = 0; i < N; i++){
-        arr[i] = i + 1;
+      for(i = 1; i <= N; i++){
+        arr.push(i)
       }
+      console.log(arr);
+
       while(arr.length > 1){
         arr.shift();
         arr.push(arr.shift());
