@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+  function solution(a, b, c){
+    let array = [a, b, c];
+    array.sort()
+    a = array[0]
+    b = array[1]
+    c = array[2]
+
+    if(a + b > c) {
+      return "YES"
+    } else {
+      return "NO"
+    }
+  }
+  console.log(solution(3, 3, 3));
+  console.log(solution(3, 33, 17));
+</script>
+</body>
+</html>
