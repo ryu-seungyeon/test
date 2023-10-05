@@ -10,13 +10,9 @@
 <body>
 <script>
   function solution(a, b, c){
-    let array = [a, b, c];
-    array.sort()
-    a = array[0]
-    b = array[1]
-    c = array[2]
+    const [d, e, f] = [a, b, c].sort()
 
-    return a + b > c ? "YES" : "NO"
+    return d + e > f ? "YES" : "NO"
   }
   console.log(solution(6, 7, 11));
   console.log(solution(13, 33, 17));
