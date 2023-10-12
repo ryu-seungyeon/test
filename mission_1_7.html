@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(day, arr){
+        let answer = [];
+        arr.forEach(v => {
+            v % 10 === 3 ? answer.push(v) : ""
+        })
+        return answer.length;
+    }
+
+    arr=[25, 23, 11, 47, 53, 17, 33];
+    console.log(solution(3, arr));
+</script>
+</body>
+</html>
