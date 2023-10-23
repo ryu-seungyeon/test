@@ -13,9 +13,9 @@
     let answer="";
     for(let i = 0; i < a.length; i++){
       console.log(a[i])
-      if(a[i] < b[i]) {
+      if(a[i] === b[i]) {
         answer += "B";
-      } else if (b[i] < a[i] ) {
+      } else if (b[i]-a[i] === 1 || b[i]-a[i] === 1 || b[i]-a[i] === -2) {
         answer += "A";
       } else {
         answer += "D";
