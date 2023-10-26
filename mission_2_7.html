@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+  function solution(arr){
+    let answer=0;
+    let top, left, right, bottom;
+    arr.forEach((v1, i) => {
+      v1.forEach((v2, j) => {
+       top = i !== 0 ? arr[i - 1][j] : 0;
+       right = arr[i][j + 1] ?? 0;
+       left = arr[i][j - 1] ?? 0
+       bottom = i + 1 < arr.length ? arr[i + 1][j] : 0;
+
+        if(v2 > right && v2 > bottom && v2 > left && v2 > top) {
+          answer++
+        }
+      })
+    })
+
+    return answer;
+  }
+
+  let arr=[[5, 3, 7, 2, 3],
+    [3, 7, 1, 6, 1],
+    [7, 2, 5, 3, 4],
+    [4, 3, 6, 4, 1],
+    [8, 7, 3, 5, 2]];
+  console.log(solution(arr));
+</script>
+</body>
+</html>
