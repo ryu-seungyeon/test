@@ -9,16 +9,19 @@
 </head>
 <body>
 <script>
+
   function solution(s){
     let answer="YES";
 
-    const strReverse = s.split("").reverse().join("");
+    const result = s.replace(/[^a-zA-Z]/g, "");
+    const strReverse = result.split("").reverse().join("");
 
-    answer = strReverse.toLowerCase() === s.toLowerCase() ? "YES" : "NO"
+    answer = strReverse.toLowerCase() === result.toLowerCase() ? "YES" : "NO"
+
     return answer;
   }
 
-  let str="goooG";
+  let str="found7, time: study; Yduts; emit, 7Dnuof";
   console.log(solution(str));
 </script>
 </body>
